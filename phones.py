@@ -999,17 +999,26 @@ phones = [{"brand":"Samsung","model":"Samsung A777","date":2008},
 {"brand":"Emporia","model":"Emporia Connect","date":2012},
 {"brand":"Motorola","model":"Motorola Moto G9 (India)","date":2020}]
 
-# code yozing
-# natija quyidagicha chiqsin
-"""
-Hisobot:
-- Brandlar:
-    - Samsung telefonlar: 300 ta 30%i
-    - Motorolla telefonlar: 150 ta 15%i
-    ....
-- Yillar (2000-2025):
-    - 2000 yilda: 20 ta 2%i
-    - 2001 yilda: 40 ta 4%i
-    - 2002 yilda: 70 ta 7%i
-    ....
-"""
+
+
+brand = []
+years = []
+
+for element in phones:
+    brand_list.append(element["brand"])
+    years_list.append(element["date"])
+
+print("Hisobot:")
+
+print("- Brandlar:")
+for element in set(brand_list):
+    count = brand_list.count(element)
+    print("     - {} telefonlari: {} ta {}%".format(element, count, count * 100 / len(brand_list)))
+
+ 
+print("- Yillar (2000-2025):")
+for element in set(years_list):
+    for i in range(26):
+        if 2000 + i == element:        
+            count = years_list.count(element)
+            print("     - {} yilda: {} ta {}%".format(element, count, count * 100 / len(years_list)))
